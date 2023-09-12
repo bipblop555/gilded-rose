@@ -47,7 +47,9 @@ export class GildedRose {
   }
 
   increaseQuality(item: Item): void {
-     
+    if (item.quality < 50) {
+      item.quality++;
+  }
   }
 
   decreaseQuality(item: Item): void {
