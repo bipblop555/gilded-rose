@@ -37,4 +37,22 @@ describe('GildedRose', () => {
 
     expect(backstagePass.quality).toBe(0);
   });
+
+  it('Ne devrait pas update la qualité de Sulfuras', () => {
+    const sulfuras = new Item('Sulfuras, Hand of Ragnaros', 10, 80);
+    const gildedRose = new GildedRose([sulfuras]);
+
+    gildedRose.updateQuality();
+
+    expect(sulfuras.quality).toBe(80);
+  });
+  
+  it('Devrait update Conjured correctement', () => {
+    const conjuredItem = new Item('Conjured Mana Cake', 10, 20);
+    const gildedRose = new GildedRose([conjuredItem]);
+
+    gildedRose.updateQuality();
+
+    expect(conjuredItem.quality).toBe(18);
+  });
 });
