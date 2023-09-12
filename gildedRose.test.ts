@@ -11,4 +11,13 @@ describe('GildedRose', () => {
     expect(agedBrie.quality).toBe(21);
   });
 
+  it('should update Backstage Pass quality correctly', () => {
+    const backstagePass = new Item('Backstage passes to a TAFKAL80ETC concert', 10, 20);
+    const gildedRose = new GildedRose([backstagePass]);
+
+    gildedRose.updateQuality();
+
+    expect(backstagePass.quality).toBe(22);
+  });
+
 });
