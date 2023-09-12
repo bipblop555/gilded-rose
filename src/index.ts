@@ -18,11 +18,7 @@ export class GildedRose {
   }
 
   private isAgedBrie(item: Item) {
-    if(item.name === 'Aged Brie'){
-      console.log("true");
-      return true
-    }
-    else return false;
+    return item.name === 'Aged Brie';
   }
 
   private isBackstagePass(item: Item) {
@@ -82,7 +78,7 @@ export class GildedRose {
       item.quality -= qualityChange;
     }
   }
-  
+
   private updateQualityForItem(item: Item) {
     if (!this.isSulfuras(item)) {
       item.sellIn--;
