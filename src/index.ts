@@ -53,6 +53,8 @@ export class GildedRose {
   }
 
   decreaseQuality(item: Item): void {
- 
+    if (item.quality > 0) {
+      item.quality--;
+  }
   }
 }
