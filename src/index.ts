@@ -22,41 +22,24 @@ export class GildedRose {
   }
 
   private isBackstagePass(item: Item) {
-    if(item.name === 'Backstage passes to a TAFKAL80ETC concert'){
-      console.log("true");
-      return true;
-    }
-    else{
-      return false;
-    }
+    return item.name === 'Backstage passes to a TAFKAL80ETC concert';
   }
 
+  
   private isSulfuras(item: Item) {
-    if(item.name === 'Sulfuras, Hand of Ragnaros'){
-      console.log("true")
-      return true
-    }
-    else{
-      return false
-    }  
-}
+    return item.name === 'Sulfuras, Hand of Ragnaros';
+  }
 
   private isConjured(item: Item) {
-    if( item.name.includes('Conjured'))
-    {
-      console.log("true");
-      return true
-    }
-    return false;
+    return item.name.includes('Conjured');
   }
 
   private updateAgedBrieQuality(item: Item) {
     if (item.quality < 50) {
-      console.log("trueeee");
       item.quality++;
     }
   }
-
+  
   private updateBackstagePassQuality(item: Item) {
     if (item.quality < 50) {
       item.quality++;
