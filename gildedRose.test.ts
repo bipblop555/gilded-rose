@@ -20,4 +20,21 @@ describe('GildedRose', () => {
     expect(backstagePass.quality).toBe(22);
   });
 
+  it('devrait update la qualité de Backstage Pass quality quand sellIn <= 5', () => {
+    const backstagePass = new Item('Backstage passes to a TAFKAL80ETC concert', 5, 20);
+    const gildedRose = new GildedRose([backstagePass]);
+
+    gildedRose.updateQuality();
+
+    expect(backstagePass.quality).toBe(23);
+  });
+
+  it('Devrait update la qualité de  Backstage Pass à 0 quand sellIn <= 0', () => {
+    const backstagePass = new Item('Backstage passes to a TAFKAL80ETC concert', 0, 20);
+    const gildedRose = new GildedRose([backstagePass]);
+
+    gildedRose.updateQuality();
+
+    expect(backstagePass.quality).toBe(0);
+  });
 });
