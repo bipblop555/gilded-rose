@@ -54,4 +54,22 @@ describe("GildedRose", () => {
 
     expect(conjuredItem.quality).toBe(18);
   });
+
+  it("Ne devrait pas dépasser la qualité maximale (50) pour Aged Brie", () => {
+    const agedBrie = new Item("Aged Brie", 5, 50);
+    const gildedRose = new GildedRose([agedBrie]);
+
+    gildedRose.updateQuality();
+
+    expect(agedBrie.quality).toBe(50);
+  });
+
+  it("Ne devrait pas réduire la qualité en dessous de 0 pour un article normal", () => {
+    const normalItem = new Item("Normal Item", 5, 0);
+    const gildedRose = new GildedRose([normalItem]);
+
+    gildedRose.updateQuality();
+
+    expect(normalItem.quality).toBe(0);
+  });
 });
